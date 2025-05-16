@@ -1,0 +1,10 @@
+.container {
+  width: 1700px;
+  /* display: flex; */
+  /* align-items: center; */
+  justify-items: center;
+}
+.headerGallery {
+  align-items: center;
+  justify-items: center;
+}

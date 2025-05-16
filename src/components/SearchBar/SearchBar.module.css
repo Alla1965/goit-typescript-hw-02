@@ -1,0 +1,42 @@
+.formSearch {
+  display: flex;
+  width: 1700px;
+  height: 72px;
+  background-color: rgba(104, 104, 246, 0.858);
+  justify-content: center;
+}
+.searchBox {
+  display: flex;
+  gap: 16px;
+
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+.inputSearch {
+  width: 100%;
+  padding: 10px 40px 10px 15px; /* правий відступ для кнопки */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 24px;
+}
+.searchButton {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchButton svg {
+  width: 20px;
+  height: 20px;
+  fill: #333;
+}
