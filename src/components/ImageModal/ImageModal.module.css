@@ -20,12 +20,6 @@
   max-height: 90%;
   overflow: auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  outline: none; */
 }
 .modal img {
   display: block;
@@ -34,4 +28,15 @@
   height: auto;
   margin: 0 auto;
   border-radius: 4px;
+}
+.image {
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  max-height: 80vh;
+  cursor: zoom-in;
+}
+
+.zoomed {
+  transform: scale(1.5);
+  cursor: zoom-out;
 }
