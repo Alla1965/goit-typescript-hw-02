@@ -10,7 +10,7 @@ import ImageModal from "../ImageModal/ImageModal";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 
 // Типи
-interface AppImage {
+interface ImageType  {
   id: string;
   url: string;
   alt: string;
@@ -18,14 +18,14 @@ interface AppImage {
 }
 
  const App = () => {
-   const [images, setImages] = useState<AppImage[]>([]);
+   const [images, setImages] = useState<ImageType []>([]);
    console.log(images);
    
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("nature");
   const [page, setPage] = useState<number>(1);
-   const [modalImage, setModalImage] = useState<AppImage | null>(null);
+   const [modalImage, setModalImage] = useState<ImageType  | null>(null);
    console.log(modalImage);
    
 
@@ -44,7 +44,7 @@ interface AppImage {
       try {
         setLoading(true);
         setError(false);
-        const { images: newImages }: { images: AppImage[] } = await fetchImages(query, page);
+        const { images: newImages }: { images: ImageType [] } = await fetchImages(query, page);
 
         setImages((prev) => {
           const ids = new Set(prev.map((img) => img.id));
