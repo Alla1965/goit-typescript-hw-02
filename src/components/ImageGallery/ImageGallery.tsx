@@ -1,6 +1,7 @@
 import css from "./ImageGallery.module.css"
 import ImageCard from "../ImageCard/ImageCard";
 import React from "react";
+import type  ImageType from "../ImageCard/ImageCard";
  
 interface ImageType {
   id: string;
@@ -10,18 +11,19 @@ interface ImageType {
     regular: string;
   };
 }
-
 interface Props {
   images: ImageType[];
-  onImageClick: (url: string) => void;
+  onImageClick: (image: ImageType) => void;
 }
 
 const ImageGallery: React.FC<Props> = ({ images, onImageClick }) => {
+
   return (
     <ul className={css.galleryList}>
       {images.map((img) => (
         <li key={img.id}>
-           <ImageCard image={img} onClick={onImageClick} />
+         
+          <ImageCard image={img} onClick={() => onImageClick(img)} />
          
         </li>
       ))}

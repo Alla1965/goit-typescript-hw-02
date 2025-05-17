@@ -1,7 +1,7 @@
 import style from "./ImageCard.module.css"
 import React from "react";
 
-interface ImageType {
+interface AppImage  {
   alt_description: string;
   urls: {
     small: string;
@@ -10,11 +10,12 @@ interface ImageType {
 }
 
 interface Props {
-  image: ImageType;
-  onClick: (image: ImageType) => void;
+  image: AppImage ;
+  onClick: (image: AppImage ) => void;
 }
+
+
 const ImageCard: React.FC<Props> = ({ image, onClick }) => {
-  
   return (
     //
     <div className={style.item}

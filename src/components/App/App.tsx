@@ -10,7 +10,7 @@ import ImageModal from "../ImageModal/ImageModal";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 
 // Типи
-interface Image {
+interface AppImage {
   id: string;
   url: string;
   alt: string;
@@ -18,12 +18,16 @@ interface Image {
 }
 
  const App = () => {
-  const [images, setImages] = useState<Image[]>([]);
+   const [images, setImages] = useState<AppImage[]>([]);
+   console.log(images);
+   
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("nature");
   const [page, setPage] = useState<number>(1);
-  const [modalImage, setModalImage] = useState<Image | null>(null);
+   const [modalImage, setModalImage] = useState<AppImage | null>(null);
+   console.log(modalImage);
+   
 
   const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
@@ -40,7 +44,7 @@ interface Image {
       try {
         setLoading(true);
         setError(false);
-        const { images: newImages }: { images: Image[] } = await fetchImages(query, page);
+        const { images: newImages }: { images: AppImage[] } = await fetchImages(query, page);
 
         setImages((prev) => {
           const ids = new Set(prev.map((img) => img.id));
@@ -69,17 +73,14 @@ interface Image {
         onImageClick={setModalImage}
         
       />
+     
       {loading && <Loader />}
 
    
 {!loading && images.length > 0 && (
   <LoadMoreBtn onClick={handleLoadMore} />
 )}
-{/* <ImageModal
-  isOpen={modalImage !== null}
-  onClose={() => setModalImage(null)}
-  image={modalImage}
-      /> */}
+
       <ImageModal
   isOpen={modalImage !== null}
   onClose={() => setModalImage(null)}
@@ -92,9 +93,7 @@ interface Image {
       : null
   }
 />
-      
-      {/* {image && <ImageModal isOpen={true} onClose={() => setModalImage(null)} image={image} />} */}
-      
+ 
       <Toaster
         position="top-right"
        toastOptions={{

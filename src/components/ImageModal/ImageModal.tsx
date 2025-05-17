@@ -28,7 +28,7 @@ console.log(image);
     if (!image || typeof image !== 'object' || !image.urls || !image.urls.regular) {
     return null;
   }
-// console.log(image);
+
  const handleImageClick = () => {
     setIsZoomed((prev) => !prev);
   };
