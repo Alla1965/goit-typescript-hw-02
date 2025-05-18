@@ -1,15 +1,16 @@
 import React, { useState }  from "react";
 import ReactModal from "react-modal";
 import css from "./ImageModal.module.css";
+import { ImageType } from "../../types/ImageType";
 
 ReactModal.setAppElement("#root");
 
-interface ImageType {
-  urls: {
-    regular: string;
-  };
-  alt_description: string;
-}
+// interface ImageType {
+//   urls: {
+//     regular: string;
+//   };
+//   alt_description: string;
+// }
 
 interface Props {
   isOpen: boolean;

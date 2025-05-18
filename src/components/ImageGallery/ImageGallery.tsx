@@ -1,22 +1,25 @@
 import css from "./ImageGallery.module.css"
 import ImageCard from "../ImageCard/ImageCard";
 import React from "react";
-import type  ImageType from "../ImageCard/ImageCard";
+// import type ImageType from "../ImageCard/ImageCard";
+import { ImageType } from "../../types/ImageType";
  
-interface ImageType {
-  id: string;
-  alt_description: string;
-  urls: {
-    small: string;
-    regular: string;
-  };
-}
+// interface ImageType {
+//   id: string;
+//   alt_description: string;
+//   urls: {
+//     small: string;
+//     regular: string;
+//   };
+// }
+
 interface Props {
   images: ImageType[];
   onImageClick: (image: ImageType) => void;
 }
 
 const ImageGallery: React.FC<Props> = ({ images, onImageClick }) => {
+console.log(images);
 
   return (
     <ul className={css.galleryList}>

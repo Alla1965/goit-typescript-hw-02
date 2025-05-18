@@ -8,17 +8,21 @@ import { Toaster } from 'react-hot-toast';
 import style from "./App.module.css";
 import ImageModal from "../ImageModal/ImageModal";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import { ImageType } from "../../types/ImageType";
 
 // Типи
-interface ImageType  {
-  id: string;
-  url: string;
-  alt: string;
-  [key: string]: any; // для гнучкості
-}
+// interface ImageType  {
+//   id: string;
+//   url: string;
+//   alt: string;
+//   [key: string]: any; // для гнучкості
+// }
+
 
  const App = () => {
-   const [images, setImages] = useState<ImageType []>([]);
+   const [images, setImages] = useState<ImageType[]>([]);
+ 
+
    console.log(images);
    
   const [loading, setLoading] = useState<boolean>(false);
@@ -26,7 +30,7 @@ interface ImageType  {
   const [query, setQuery] = useState<string>("nature");
   const [page, setPage] = useState<number>(1);
    const [modalImage, setModalImage] = useState<ImageType  | null>(null);
-   console.log(modalImage);
+  // console.log(modalImage);
    
 
   const handleSearch = (newQuery: string) => {
@@ -84,15 +88,10 @@ interface ImageType  {
       <ImageModal
   isOpen={modalImage !== null}
   onClose={() => setModalImage(null)}
-  image={
-    modalImage
-      ? {
-          urls: { regular: modalImage.url },
-          alt_description: modalImage.alt,
-        }
-      : null
-  }
-/>
+  image={modalImage  }
+      />
+      
+
  
       <Toaster
         position="top-right"
