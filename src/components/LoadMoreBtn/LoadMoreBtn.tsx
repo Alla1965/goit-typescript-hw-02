@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./LoadMoreBtn.module.css";
 
-// Типізація пропсів
+
 interface LoadMoreBtnProps {
   onClick: () => void;
 }

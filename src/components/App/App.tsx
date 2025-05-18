@@ -10,28 +10,14 @@ import ImageModal from "../ImageModal/ImageModal";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { ImageType } from "../../types/ImageType";
 
-// Типи
-// interface ImageType  {
-//   id: string;
-//   url: string;
-//   alt: string;
-//   [key: string]: any; // для гнучкості
-// }
-
-
  const App = () => {
    const [images, setImages] = useState<ImageType[]>([]);
- 
-
-   console.log(images);
    
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [query, setQuery] = useState<string>("nature");
   const [page, setPage] = useState<number>(1);
    const [modalImage, setModalImage] = useState<ImageType  | null>(null);
-  // console.log(modalImage);
-   
 
   const handleSearch = (newQuery: string) => {
     setQuery(newQuery);
@@ -48,12 +34,13 @@ import { ImageType } from "../../types/ImageType";
       try {
         setLoading(true);
         setError(false);
-        const { images: newImages }: { images: ImageType [] } = await fetchImages(query, page);
+       const { images: newImages } = await fetchImages(query, page);
 
         setImages((prev) => {
           const ids = new Set(prev.map((img) => img.id));
           const filtered = newImages.filter((img) => !ids.has(img.id));
           return [...prev, ...filtered];
+         
         });
       } catch (err) {
         setError(true);
